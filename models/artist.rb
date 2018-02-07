@@ -39,4 +39,11 @@ class Artist
      result = SqlRunner.run(sql)
   end
 
+  def update()
+    sql = "UPDATE artists SET (name) = ($1) WHERE id = $2"
+    values = [@names, @id]
+    update = SqlRunner.run(sql, values)
+    return update.map{|name| Artist.new(name)}
+  end
+
 end

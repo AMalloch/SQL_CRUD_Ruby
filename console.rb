@@ -25,6 +25,7 @@ all_artists = Artist.all
 all_albums = Album.all
 by_album = artist1.album
 by_artist = album1.artist
+update = artist1.update
 
 binding.pry
 nil
