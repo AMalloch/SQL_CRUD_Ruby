@@ -6,8 +6,16 @@ artist1 = Artist.new({
   'name' => 'Gus'
 })
 
-artist1.save
+album1 = Album.new({
+  'title' => 'Nightmare at Codeclan',
+  'genre' => 'Horror'
+  })
 
+artist1.save
+album1.save
+
+all_artists = Artist.all
+all_albums = Album.all
 
 binding.pry
 nil

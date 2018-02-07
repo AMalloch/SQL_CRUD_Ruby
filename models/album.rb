@@ -16,4 +16,16 @@ class Album
 
   end
 
+  def save
+    sql = 'INSERT INTO albums (title) VALUES ($1) RETURNING id'
+    values = [@title]
+    @id = SqlRunner.run(sql, values)[0]['id'].to_i
+  end
+
+  def Album.all()
+    sql = 'SELECT * FROM albums'
+    albums = SqlRunner.run(sql)
+    return albums.map{|album| Album.new(album)}
+  end
+
 end
