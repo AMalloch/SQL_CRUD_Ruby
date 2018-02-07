@@ -24,5 +24,19 @@ class Artist
     artists = SqlRunner.run(sql)
     return artists.map{|artist| Artist.new(artist)}
   end
+#   List all the albums they have by an artist
+# * Show the artist any album belongs to
+
+  def album()
+    sql = 'SELECT * FROM albums WHERE artist_id = $1'
+    values = [@id]
+    album_info = SqlRunner.run(sql, values)
+    return album_info.map{|album| Album.new(album)}
+  end
+  #
+  def self.delete_all()
+     sql = "DELETE FROM artists"
+     result = SqlRunner.run(sql)
+  end
 
 end
