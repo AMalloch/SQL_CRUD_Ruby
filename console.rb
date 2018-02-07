@@ -7,3 +7,7 @@ artist1 = Artist.new({
 })
 
 artist1.save
+
+
+binding.pry
+nil
